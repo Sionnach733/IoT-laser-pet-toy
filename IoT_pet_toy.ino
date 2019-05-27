@@ -30,6 +30,7 @@ int manualTimerInt = 0;
 int treatTimerInt = 0;
 
 void setServoAuto(){
+  digitalWrite(16, 1); // turn on laser
   tiltServo.write(random(minTilt, maxTilt));
   autoDelay = timer.setTimeout(100L, setAutoPan);
   timer.enable(autoDelay);
@@ -41,6 +42,7 @@ void setAutoPan(){
 
 void setAutoTreat(){
   treatServo.write(180);
+  digitalWrite(16, 0); // turn off laser
 }
 
 void setServoManual(){
